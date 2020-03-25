@@ -3,12 +3,12 @@ This is a demo app for how to use Retrofit in kotlin.
 
 
 ## Add Internet Permission in the AndroidManifest.xml
-```
+```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
 ## Add the below dependencies in your app level build.gradle file
-```
+```gradle
 //Retrofit
 implementation 'com.squareup.retrofit2:retrofit:2.5.0'
 implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
@@ -17,7 +17,7 @@ implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
 ```
 
 ## Create a ApiClient class
-```
+```kotlin
 object ApiClient {
 
     private const val BASE_URL: String = "https://jsonplaceholder.typicode.com/"
@@ -50,7 +50,7 @@ object ApiClient {
 ```
 
 ## Create an interface for different API calls
-```
+```kotlin
 interface ApiService {
 
     @GET("users")
@@ -60,7 +60,7 @@ interface ApiService {
 ```
 
 ## Create a response class to parse json data
-```
+```kotlin
 data class User(
     @SerializedName("id")
     val id: Int? = null,
@@ -68,7 +68,7 @@ data class User(
 ```
 
 ## Define a method to call API
-```
+```kotlin
 if (isInternetAvailable()) {
     getUsersData()
 }
